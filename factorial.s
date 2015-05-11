@@ -12,58 +12,80 @@ main:
 	BX R4
 
 
+factorial_int$:
+
+	pop {R11}
+	pop {R4}
+	STR R4, [R11, #0]
+	push {lr}
+	LDR R4, [R11, #0]
+	MOV R5 , #0
+	CMP R4, R5
+	MOVEQ R6, #1
+	MOVNE R6, #0
+	MOV R1, #0
+	CMP R6, R1
+	BEQ else_0$
+
+if_0$:
+
+	MOV R4 , #1
+	pop {R5}
+	push {R4}
+	MOV pc , R5
+	B end_0$
+
+else_0$:
+
+	LDR R4, [R11, #0]
+	push {R11}
+	push {R4}
+	LDR R5, [R11, #0]
+	MOV R6 , #1
+	SUB R7, R5, R6
+	push {R7}
+	ADD R11, R11, #4
+	push {R11}
+	BL factorial_int$
+	pop {R5}
+	pop {R4}
+	pop {R11}
+	MOV R2, R5
+	MUL R6, R4, R2
+	pop {R4}
+	push {R6}
+	MOV pc , R4
+
+end_0$:
+
+	pop {pc}
+
 main$:
 
 	pop {R11}
 	push {lr}
-	MOV R4 , #7
-	STR R4, [R11, #4]
-	MOV R4 , #4
-	MOV R5 , R4
-	MOV R6, #4
-	ADD R6, R6, #24
-	ADD R7, R6, #8
-	MOV R2, #8
-	MUL R6, R4, R2
-	ADD R4, R7, R6
-	MOV R1, #0
-	MOV R2, #5
-	CMP R1,R5
-	MOVGT R1, R1
-	MOVGT R2, R5
-	BEQ ERROR_INDEX_OUT_OF_BOUNDS$
-	CMP R5,R2
-	MOVLE R1, R1
-	MOVLE R2, R5
-	BEQ ERROR_INDEX_OUT_OF_BOUNDS$
-	MOV R5 , #4
-	STR R5, [R11, R4]
 	push {R11}
-	MOV R4 , #4
-	MOV R5 , R4
-	MOV R6, #4
-	ADD R6, R6, #24
-	ADD R7, R6, #8
-	MOV R2, #8
-	MUL R6, R4, R2
-	ADD R4, R7, R6
-	MOV R1, #0
-	MOV R2, #5
-	CMP R1,R5
-	MOVGT R1, R1
-	MOVGT R2, R5
-	BGT ERROR_INDEX_OUT_OF_BOUNDS$
-	CMP R5,R2
-	MOVLE R1, R1
-	MOVLE R2, R5
-	BLE ERROR_INDEX_OUT_OF_BOUNDS$
-	LDR R5, [R11, R4]
-	push {R5}
-	push {R5}
-	ADD R11, R11, #188
+	ADD R11, R11, #0
+	push {R11}
+	BL obtenerInt$
+	pop {R4}
+	pop {R11}
+	STR R4, [R12, #0]
+	push {R11}
+	LDR R4, [R12, #0]
+	push {R4}
+	ADD R11, R11, #0
+	push {R11}
+	BL factorial_int$
+	pop {R4}
+	pop {R11}
+	STR R4, [R12, #0]
+	push {R11}
+	LDR R4, [R12, #0]
+	push {R4}
+	ADD R11, R11, #0
 	push {R11}
 	BL imprimirInt_int$
-	pop {R4}
 	pop {R11}
 	pop {pc}
 
@@ -140,7 +162,7 @@ _retorno:
 .word
 .word
 _index_fuera:
-.asciz " A una lista se le paso el indice %d < %d fuera de su tamanio\n"
+.asciz " a una lista se le paso el indice %d < %d fuera de su tamanio\n"
 
 _ingreso_erroneo:
 .asciz "No se ingreso un numero en el formato pedido\n"
