@@ -29,10 +29,12 @@ main$:
 	MOV R1, #0
 	MOV R2, #5
 	CMP R1,R5
-	MOVGT R1, R5
+	MOVGT R1, R1
+	MOVGT R2, R5
 	BGT ERROR_INDEX_OUT_OF_BOUNDS$
 	CMP R5,R2
-	MOVLE R1, R5
+	MOVLE R1, R1
+	MOVLE R2, R5
 	BLE ERROR_INDEX_OUT_OF_BOUNDS$
 	MOV R5 , #4
 	STR R5, [R11, R4]
@@ -48,10 +50,12 @@ main$:
 	MOV R1, #0
 	MOV R2, #5
 	CMP R1,R5
-	MOVGT R1, R5
+	MOVGT R1, R1
+	MOVGT R2, R5
 	BGT ERROR_INDEX_OUT_OF_BOUNDS$
 	CMP R5,R2
-	MOVLE R1, R5
+	MOVLE R1, R1
+	MOVLE R2, R5
 	BLE ERROR_INDEX_OUT_OF_BOUNDS$
 	LDR R5, [R11, R4]
 	push {R5}
@@ -134,8 +138,9 @@ ERROR_INGRESO_ERRONEO$:
 
 _retorno:
 .word
+.word
 _index_fuera:
-.asciz "A una lista se le paso el indice %d fuera de su tamanio\n"
+.asciz " A una lista se le paso el indice %d < %d fuera de su tamanio\n"
 
 _ingreso_erroneo:
 .asciz "No se ingreso un numero en el formato pedido\n"
