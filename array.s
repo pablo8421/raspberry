@@ -23,7 +23,9 @@ main$:
 	MOV R6, #4
 	ADD R6, R6, #24
 	ADD R7, R6, #8
-	MUL R6, R4, #8
+	MOV R1, R4
+	MOV R2, #8
+	MUL R6, R1, R2
 	ADD R4, R7, R6
 	CMP #0,R5
 	MOVLT R1, R5
@@ -39,7 +41,9 @@ main$:
 	MOV R6, #4
 	ADD R6, R6, #24
 	ADD R7, R6, #8
-	MUL R6, R4, #8
+	MOV R1, R4
+	MOV R2, #8
+	MUL R6, R1, R2
 	ADD R4, R7, R6
 	CMP #0,R5
 	MOVLT R1, R5
