@@ -36,6 +36,11 @@ while_0$:
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
+	LDR R4, [R11, #0]
+	MOV R5 , #1
+	ADD R6, R4, R5
+	STR R6, [R11, #0]
+	B while_0$
 
 end_0$:
 
