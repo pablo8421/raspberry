@@ -12,88 +12,43 @@ main:
 	BX R4
 
 
-fib_int$:
-
-	pop {R11}
-	pop {R4}
-	STR R4, [R11, #0]
-	push {lr}
-	LDR R4, [R11, #0]
-	MOV R5 , #2
-	CMP R4, R5
-	MOVLT R6, #1
-	MOVGE R6, #0
-	MOV R1, #0
-	CMP R6, R1
-	BEQ else_0$
-
-if_0$:
-
-	LDR R4, [R11, #0]
-	pop {R5}
-	push {R4}
-	MOV pc , R5
-	B end_0$
-
-else_0$:
-
-	push {R11}
-	LDR R4, [R11, #0]
-	MOV R5 , #1
-	SUB R6, R4, R5
-	push {R6}
-	ADD R11, R11, #4
-	push {R11}
-	BL fib_int$
-	pop {R4}
-	pop {R11}
-	push {R11}
-	push {R4}
-	LDR R5, [R11, #0]
-	MOV R6 , #2
-	SUB R7, R5, R6
-	push {R7}
-	ADD R11, R11, #4
-	push {R11}
-	BL fib_int$
-	pop {R5}
-	pop {R4}
-	pop {R11}
-	ADD R6, R4, R5
-	pop {R4}
-	push {R6}
-	MOV pc , R4
-
-end_0$:
-
-	pop {pc}
-
 main$:
 
 	pop {R11}
 	push {lr}
+	MOV R4 , #'a'
+	STR R4, [R12, #0]
+	MOV R4 , #'b'
+	STR R4, [R12, #4]
+	MOV R4 , #'c'
+	STR R4, [R11, #0]
 	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #4
 	push {R11}
-	BL obtenerInt$
+	BL obtenerChar$
 	pop {R4}
 	pop {R11}
-	STR R4, [R12, #0]
+	STR R4, [R12, #4]
 	push {R11}
 	LDR R4, [R12, #0]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #4
 	push {R11}
-	BL fib_int$
-	pop {R4}
+	BL imprimirChar_char$
 	pop {R11}
-	STR R4, [R12, #0]
 	push {R11}
-	LDR R4, [R12, #0]
+	LDR R4, [R12, #4]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #4
 	push {R11}
-	BL imprimirInt_int$
+	BL imprimirChar_char$
+	pop {R11}
+	push {R11}
+	LDR R4, [R11, #0]
+	push {R4}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
 	pop {R11}
 	pop {pc}
 
@@ -191,7 +146,7 @@ _scanLugar:
 .word
 
 _global$:
-.space 2
+.space 3
 
 _local$:
 .space 1024
