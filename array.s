@@ -28,14 +28,15 @@ main$:
 	ADD R4, R7, R6
 	MOV R1, #0
 	MOV R2, #5
-	CMP R1,R5
 	MOV R1, R1
 	MOV R2, R5
-	BEQ ERROR_INDEX_OUT_OF_BOUNDS$
-	CMP R5,R2
-	MOV R1, R1
-	MOV R2, R5
-	BEQ ERROR_INDEX_OUT_OF_BOUNDS$
+	MOV R3, R2
+	CMP R1, R2
+	BGT ERROR_INDEX_OUT_OF_BOUNDS$
+	MOV R1, R2
+	MOV R2, R3
+	CMP R1, R2
+	BLE ERROR_INDEX_OUT_OF_BOUNDS$
 	MOV R5 , #4
 	STR R5, [R11, R4]
 	push {R11}
@@ -49,13 +50,14 @@ main$:
 	ADD R4, R7, R6
 	MOV R1, #0
 	MOV R2, #5
-	CMP R1,R5
-	MOVGT R1, R1
-	MOVGT R2, R5
+	MOV R1, R1
+	MOV R2, R5
+	MOV R3, R2
+	CMP R1, R2
 	BGT ERROR_INDEX_OUT_OF_BOUNDS$
-	CMP R5,R2
-	MOVLE R1, R1
-	MOVLE R2, R5
+	MOV R1, R2
+	MOV R2, R3
+	CMP R1, R2
 	BLE ERROR_INDEX_OUT_OF_BOUNDS$
 	LDR R5, [R11, R4]
 	push {R5}
@@ -140,7 +142,7 @@ _retorno:
 .word
 .word
 _index_fuera:
-.asciz " A una lista se le paso el indice %d < %d fuera de su tamanio\n"
+.asciz " a una lista se le paso el indice %d < %d fuera de su tamanio\n"
 
 _ingreso_erroneo:
 .asciz "No se ingreso un numero en el formato pedido\n"
