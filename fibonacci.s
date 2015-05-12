@@ -73,16 +73,51 @@ main$:
 	pop {R11}
 	push {lr}
 	push {R11}
+	ADD R11, R11, #4
+	push {R11}
+	BL obtenerChar$
+	pop {R4}
+	pop {R11}
+	STR R4, [R11, #0]
 	push {R11}
 	ADD R11, R11, #4
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
+	STR R4, [R12, #0]
+	push {R11}
+	LDR R4, [R11, #0]
+	push {R4}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R11}
+	push {R11}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirEspacio$
+	pop {R11}
+	push {R11}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirEspacio$
+	pop {R11}
+	push {R11}
+	LDR R4, [R12, #0]
 	push {R4}
 	ADD R11, R11, #4
 	push {R11}
 	BL fib_int$
+	pop {R4}
+	pop {R11}
+	STR R4, [R12, #0]
+	push {R11}
+	LDR R4, [R12, #0]
+	push {R4}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirInt_int$
 	pop {R11}
 	pop {pc}
 
@@ -180,7 +215,7 @@ _scanLugar:
 .word
 
 _global$:
-.space 1
+.space 2
 
 _local$:
 .space 1024
