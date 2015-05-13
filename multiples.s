@@ -58,6 +58,10 @@ main$:
 	pop {R4}
 	pop {R11}
 	STR R4, [R11, #8]
+	LDR R4, [R12, #0]
+	MOV R5 , #0
+	ADD R6, R4, R5
+	STR R6, [R12, #0]
 	push {R11}
 	LDR R4, [R12, #0]
 	push {R4}
