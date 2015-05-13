@@ -17,86 +17,86 @@ main$:
 	pop {R11}
 	push {lr}
 	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
 	STR R4, [R12, #0]
 	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
 	STR R4, [R12, #4]
 	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
 	STR R4, [R12, #8]
 	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
-	STR R4, [R12, #12]
+	STR R4, [R11, #0]
 	push {R11}
-	ADD R11, R11, #0
-	push {R11}
-	BL obtenerInt$
-	pop {R4}
-	pop {R11}
-	STR R4, [R12, #16]
-	push {R11}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL obtenerInt$
 	pop {R4}
 	pop {R11}
-	STR R4, [R12, #20]
+	STR R4, [R11, #4]
+	push {R11}
+	ADD R11, R11, #12
+	push {R11}
+	BL obtenerInt$
+	pop {R4}
+	pop {R11}
+	STR R4, [R11, #8]
 	push {R11}
 	LDR R4, [R12, #0]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
 	LDR R4, [R12, #4]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
 	LDR R4, [R12, #8]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
-	LDR R4, [R12, #12]
+	LDR R4, [R11, #0]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
-	LDR R4, [R12, #16]
+	LDR R4, [R11, #4]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
-	LDR R4, [R12, #20]
+	LDR R4, [R11, #8]
 	push {R4}
-	ADD R11, R11, #0
+	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
@@ -221,7 +221,7 @@ _scanLugar:
 .word
 
 _global$:
-.space 7
+.space 4
 
 _local$:
 .space 1024
