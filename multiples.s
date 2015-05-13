@@ -226,6 +226,7 @@ _scanFormato:
 
 _scanLugar:
 .word
+.word
 
 _global$:
 .space 16
