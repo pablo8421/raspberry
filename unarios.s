@@ -28,7 +28,6 @@ main$:
 	MOV R5, #-1
 	MUL R5, R4, R5
 	push {R5}
-	push {R5}
 	ADD R11, R11, #0
 	push {R11}
 	BL imprimirInt_int$
