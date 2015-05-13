@@ -61,10 +61,11 @@ main$:
 	pop {pc}
 
 _div$:
-	push {lr}
+
 	MOV R0, #0
 	pop {R2}
 	pop {R1}
+	push {lr}
 	_divRep$:
 	CMP R1, R2
 	BLT _divFin$
