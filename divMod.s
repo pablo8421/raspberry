@@ -71,7 +71,7 @@ _div$:
 	B _divRep$
 	_divFin$:
 	pop {R2}
-	push{R0}
+	push {R0}
 	MOV pc, R2
 
 _mod$:
