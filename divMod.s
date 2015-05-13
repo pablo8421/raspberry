@@ -36,7 +36,7 @@ main$:
 	MOV R1, R4
 	MOV R2, R5
 	BL _div$
-
+	MOV R6, R0
 	push {R6}
 	ADD R11, R11, #12
 	push {R11}
@@ -58,12 +58,12 @@ main$:
 
 _div$:
 	push {lr}
-	MOV R6, #0
+	MOV R0, #0
 	_divRep$:
 	CMP R1, R2
-	BLT _divFin$
+	@BLT _divFin$
 	SUB R1, R1, R2
-	ADD R6, R6, #1
+	ADD R0, R0, #1
 	B _divRep$
 	_divFin$:
 	pop {pc}
