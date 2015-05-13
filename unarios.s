@@ -131,6 +131,25 @@ else_2$:
 
 end_2$:
 
+	push {R11}
+	MOV R4 , #'s'
+	push {R4}
+	ADD R11, R11, #0
+	push {R11}
+	BL imprimirChar_char$
+	pop {R11}
+	push {R11}
+	MOV R4 , #'i'
+	push {R4}
+	ADD R11, R11, #0
+	push {R11}
+	BL imprimirChar_char$
+	pop {R11}
+	push {R11}
+	ADD R11, R11, #0
+	push {R11}
+	BL imprimirEspacio$
+	pop {R11}
 	pop {pc}
 
 obtenerChar$:
