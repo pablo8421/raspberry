@@ -60,8 +60,8 @@ _div$:
 	push {lr}
 	MOV R0, #0
 	_divRep$:
-	CMP R1, R2
-	@BLT _divFin$
+	CMP R2, R1
+	BLT _divFin$
 	SUB R1, R1, R2
 	ADD R0, R0, #1
 	B _divRep$
