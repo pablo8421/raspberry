@@ -35,7 +35,7 @@ main$:
 	MOV R1, R4
 	MOV R2, R5
 	BL _div$
-	MOV R6, R1
+	MOV R6, R0
 	STR R6, [R11, #8]
 	push {R11}
 	LDR R4, [R11, #8]
@@ -49,7 +49,7 @@ main$:
 	MOV R1, R4
 	MOV R2, R5
 	BL _mod$
-	MOV R6, R1
+	MOV R6, R0
 	STR R6, [R11, #8]
 	push {R11}
 	LDR R4, [R11, #8]
@@ -70,7 +70,6 @@ _div$:
 	ADD R0, R0, #1
 	B _divRep$
 	_divFin$:
-	MOV R1, R0
 	pop {pc}
 
 _mod$:
@@ -83,7 +82,7 @@ _mod$:
 	ADD R0, R0, #1
 	B _modRep$
 	_modFin$:
-	MOV R1, R2
+	MOV R0, R1
 	pop {pc}
 
 obtenerChar$:
