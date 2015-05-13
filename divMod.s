@@ -36,7 +36,7 @@ main$:
 	MOV R1, R4
 	MOV R2, R5
 	BL _div$
-	MOV R6, R0
+
 	push {R6}
 	ADD R11, R11, #12
 	push {R11}
