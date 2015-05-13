@@ -32,10 +32,10 @@ main$:
 	STR R4, [R11, #4]
 	LDR R4, [R11, #0]
 	LDR R5, [R11, #4]
-	MOV R1, R4
-	MOV R2, R5
+	push {R4}
+	push {R5}
 	BL _div$
-	pop {R6}
+	MOV R6, R0
 	STR R6, [R11, #8]
 	push {R11}
 	LDR R4, [R11, #8]
@@ -63,6 +63,8 @@ main$:
 _div$:
 	push {lr}
 	MOV R0, #0
+	pop {R2}
+	pop {R1}
 	_divRep$:
 	CMP R1, R2
 	BLT _divFin$
@@ -70,9 +72,7 @@ _div$:
 	ADD R0, R0, #1
 	B _divRep$
 	_divFin$:
-	pop {R2}
-	push {R0}
-	MOV pc, R2
+	pop {pc}
 
 _mod$:
 	push {lr}
