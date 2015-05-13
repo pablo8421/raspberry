@@ -30,30 +30,26 @@ main$:
 	pop {R4}
 	pop {R11}
 	STR R4, [R11, #4]
+	push {R11}
 	LDR R4, [R11, #0]
 	LDR R5, [R11, #4]
-	push {R4}
-	push {R5}
+	MOV R1, R4
+	MOV R2, R5
 	BL _div$
 	MOV R6, R0
-	STR R6, [R11, #8]
-	push {R11}
-	LDR R4, [R11, #8]
-	push {R4}
+	push {R6}
 	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
 	pop {R11}
+	push {R11}
 	LDR R4, [R11, #0]
 	LDR R5, [R11, #4]
 	MOV R1, R4
 	MOV R2, R5
 	BL _mod$
 	MOV R6, R0
-	STR R6, [R11, #8]
-	push {R11}
-	LDR R4, [R11, #8]
-	push {R4}
+	push {R6}
 	ADD R11, R11, #12
 	push {R11}
 	BL imprimirInt_int$
@@ -61,11 +57,8 @@ main$:
 	pop {pc}
 
 _div$:
-
-	MOV R0, #0
-	pop {R2}
-	pop {R1}
 	push {lr}
+	MOV R0, #0
 	_divRep$:
 	CMP R1, R2
 	BLT _divFin$
