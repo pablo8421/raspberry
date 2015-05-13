@@ -38,18 +38,6 @@ main$:
 	BL imprimirInt_int$
 	pop {R11}
 	push {R11}
-	MOV R4 , #'k'
-	push {R4}
-	ADD R11, R11, #12
-	push {R11}
-	BL imprimirChar_char$
-	pop {R11}
-	push {R11}
-	ADD R11, R11, #12
-	push {R11}
-	BL imprimirEspacio$
-	pop {R11}
-	push {R11}
 	LDR R4, [R11, #4]
 	push {R4}
 	ADD R11, R11, #12
@@ -62,6 +50,30 @@ main$:
 	MOV R1, R4
 	MOV R2, R5
 	BL _div$
+	MOV R6, R0
+	push {R6}
+	ADD R11, R11, #12
+	push {R11}
+	BL imprimirInt_int$
+	pop {R11}
+	push {R11}
+	MOV R4 , #43
+	MOV R5 , #5
+	MOV R1, R4
+	MOV R2, R5
+	BL _div$
+	MOV R6, R0
+	push {R6}
+	ADD R11, R11, #12
+	push {R11}
+	BL imprimirInt_int$
+	pop {R11}
+	push {R11}
+	MOV R4 , #43
+	MOV R5 , #5
+	MOV R1, R4
+	MOV R2, R5
+	BL _mod$
 	MOV R6, R0
 	push {R6}
 	ADD R11, R11, #12
