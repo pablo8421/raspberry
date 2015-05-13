@@ -26,7 +26,7 @@ main$:
 	push {R11}
 	LDR R4, [R12, #0]
 	MOV R5, #-1
-	MUL R5, R4R5
+	MUL R5, R4, R5
 	push {R5}
 	push {R5}
 	ADD R11, R11, #0
