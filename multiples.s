@@ -221,7 +221,7 @@ _scanLugar:
 .word
 
 _global$:
-.space 4
+.space 16
 
 _local$:
 .space 1024
