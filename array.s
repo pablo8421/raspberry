@@ -33,7 +33,7 @@ while_0$:
 	LDR R4, [R11, #0]
 	MOV R2, #4
 	MUL R5, R4, R2
-	ADD R4, #0, R5
+	ADD R4, R5, #0
 	MOV R1, #0
 	MOV R3, #40
 	MOV R1, R1
@@ -96,7 +96,7 @@ while_1$:
 	LDR R5, [R11, #0]
 	MOV R2, #4
 	MUL R6, R5, R2
-	ADD R5, #0, R6
+	ADD R5, R6, #0
 	MOV R1, #0
 	MOV R3, #40
 	MOV R1, R1
