@@ -50,7 +50,6 @@ while_0$:
 	ADD R11, R11, #4
 	push {R11}
 	BL imprimirInt_int$
-	pop {R4}
 	pop {R11}
 	LDR R5, [R11, #0]
 	MOV R6 , #1
