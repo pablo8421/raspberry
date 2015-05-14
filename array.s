@@ -36,6 +36,10 @@ while_0$:
 	push {R11}
 	BL imprimirChar_char$
 	pop {R11}
+	LDR R4, [R11, #0]
+	MOV R5 , #1
+	ADD R6, R4, R5
+	STR R6, [R11, #0]
 	B while_0$
 
 end_0$:
@@ -105,6 +109,10 @@ while_2$:
 	BL imprimirChar_char$
 	pop {R4}
 	pop {R11}
+	LDR R5, [R11, #0]
+	MOV R6 , #1
+	ADD R7, R5, R6
+	STR R7, [R11, #0]
 	B while_2$
 
 end_2$:
@@ -222,15 +230,6 @@ if_4$:
 	push {R11}
 	push {R4}
 	MOV R5 , #'a'
-	push {R5}
-	ADD R11, R11, #4
-	push {R11}
-	BL imprimirChar_char$
-	pop {R4}
-	pop {R11}
-	push {R11}
-	push {R4}
-	MOV R5 , #'l'
 	push {R5}
 	ADD R11, R11, #4
 	push {R11}
