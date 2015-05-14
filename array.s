@@ -44,6 +44,11 @@ while_0$:
 
 end_0$:
 
+	push {R11}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirEspacio$
+	pop {R11}
 	MOV R4 , #0
 	STR R4, [R11, #0]
 
@@ -117,6 +122,13 @@ while_2$:
 
 end_2$:
 
+	push {R11}
+	push {R4}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirEspacio$
+	pop {R4}
+	pop {R11}
 	pop {pc}
 
 mensaje_boolean$:
