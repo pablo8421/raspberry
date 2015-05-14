@@ -495,12 +495,12 @@ _scanFormato:
 
 .balign 4
 _scanLugar:
-.space 16
+.skip 16
 
 .balign 4
 _global$:
-.space 8
+.skip 8
 
 .balign 4
 _local$:
-.space 1024
+.skip 1024
