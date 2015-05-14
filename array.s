@@ -489,14 +489,18 @@ _char:
 _espacio:
 .asciz "\n"
 
+.balign 4
 _scanFormato:
 .asciz "%d"
 
+.balign 4
 _scanLugar:
 .space 16
 
+.balign 4
 _global$:
 .space 8
 
+.balign 4
 _local$:
 .space 1024
