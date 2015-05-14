@@ -22,13 +22,37 @@ mostrarLista$:
 while_0$:
 
 	LDR R4, [R11, #0]
-	MOV R5 , #10
+	MOV R5 , #5
 	MOV R6, #0
 	CMP R4, R5
 	MOVLT R6, #1
 	MOV R1, #0
 	CMP R6, R1
 	BEQ end_0$
+	push {R11}
+	MOV R4 , #'_'
+	push {R4}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R11}
+	B while_0$
+
+end_0$:
+
+	MOV R4 , #0
+	STR R4, [R11, #0]
+
+while_1$:
+
+	LDR R4, [R11, #0]
+	MOV R5 , #10
+	MOV R6, #0
+	CMP R4, R5
+	MOVLT R6, #1
+	MOV R1, #0
+	CMP R6, R1
+	BEQ end_1$
 	push {R11}
 	LDR R4, [R11, #0]
 	MOV R2, #4
@@ -55,9 +79,211 @@ while_0$:
 	MOV R6 , #1
 	ADD R7, R5, R6
 	STR R7, [R11, #0]
-	B while_0$
+	B while_1$
 
-end_0$:
+end_1$:
+
+	MOV R5 , #0
+	STR R5, [R11, #0]
+
+while_2$:
+
+	LDR R5, [R11, #0]
+	MOV R6 , #5
+	MOV R7, #0
+	CMP R5, R6
+	MOVLT R7, #1
+	MOV R1, #0
+	CMP R7, R1
+	BEQ end_2$
+	push {R11}
+	push {R4}
+	MOV R5 , #'_'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	B while_2$
+
+end_2$:
+
+	pop {pc}
+
+mensaje_boolean$:
+
+	pop {R11}
+	pop {R5}
+	STR R5, [R11, #0]
+	push {lr}
+	LDR R5, [R11, #0]
+	MOV R1, #0
+	CMP R5, R1
+	BEQ end_3$
+
+if_3$:
+
+	push {R11}
+	push {R4}
+	MOV R5 , #'I'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'n'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'d'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'i'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'c'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'e'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #':'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #' '
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+
+end_3$:
+
+	LDR R5, [R11, #0]
+	CMP R5, #0
+	MOVEQ R6, #1
+	CMP R5, #1
+	MOVEQ R6, #0
+	MOV R1, #0
+	CMP R6, R1
+	BEQ end_4$
+
+if_4$:
+
+	push {R11}
+	push {R4}
+	MOV R5 , #'V'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'a'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'l'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'l'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'o'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #'r'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #':'
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+	push {R11}
+	push {R4}
+	MOV R5 , #' '
+	push {R5}
+	ADD R11, R11, #4
+	push {R11}
+	BL imprimirChar_char$
+	pop {R4}
+	pop {R11}
+
+end_4$:
 
 	pop {pc}
 
@@ -68,12 +294,21 @@ main$:
 	MOV R5 , #1
 	STR R5, [R11, #8]
 
-while_1$:
+while_5$:
 
 	LDR R5, [R11, #8]
 	MOV R1, #0
 	CMP R5, R1
-	BEQ end_1$
+	BEQ end_5$
+	push {R11}
+	push {R4}
+	MOV R5 , #1
+	push {R5}
+	ADD R11, R11, #12
+	push {R11}
+	BL mensaje_boolean$
+	pop {R4}
+	pop {R11}
 	push {R11}
 	push {R4}
 	ADD R11, R11, #12
@@ -83,6 +318,15 @@ while_1$:
 	pop {R4}
 	pop {R11}
 	STR R5, [R11, #0]
+	push {R11}
+	push {R4}
+	MOV R5 , #0
+	push {R5}
+	ADD R11, R11, #12
+	push {R11}
+	BL mensaje_boolean$
+	pop {R4}
+	pop {R11}
 	push {R11}
 	push {R4}
 	ADD R11, R11, #12
@@ -116,9 +360,9 @@ while_1$:
 	BL mostrarLista$
 	pop {R4}
 	pop {R11}
-	B while_1$
+	B while_5$
 
-end_1$:
+end_5$:
 
 	pop {pc}
 
