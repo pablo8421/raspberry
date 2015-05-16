@@ -479,7 +479,7 @@ _scanLugar:
 .space 16
 
 _global$:
-.space 8
+.space 44
 
 _local$:
 .space 1024
