@@ -495,7 +495,8 @@ _scanFormato:
 
 .balign 4
 _scanLugar:
-.skip 16
+.word 0
+.word 0
 
 .balign 4
 _global$:
