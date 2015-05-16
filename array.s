@@ -347,6 +347,23 @@ while_5$:
 	pop {R4}
 	pop {R11}
 	STR R5, [R11, #4]
+	LDR R5, [R11, #0]
+	MOV R2, #4
+	MUL R6, R5, R2
+	ADD R5, R6, #0
+	MOV R1, #0
+	MOV R3, #40
+	MOV R1, R1
+	MOV R2, R5
+	MOV R3, R3
+	CMP R1, R2
+	BGT ERROR_INDEX_OUT_OF_BOUNDS$
+	MOV R1, R2
+	MOV R2, R3
+	CMP R1, R2
+	BGE ERROR_INDEX_OUT_OF_BOUNDS$
+	LDR R6, [R11, #4]
+	STR R6, [R12, R5]
 	push {R11}
 	push {R4}
 	ADD R11, R11, #12
