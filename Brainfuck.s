@@ -88,7 +88,7 @@ _in_14:
 _out_14:
 	LDRB R5, [R4]
 	CMP R5, #0
-	BNE _out_14
+	BNE _in_14
 	ADD R4, R4, #1
 	LDRB R5, [R4]
 	ADD R5, R5, #1
@@ -114,7 +114,7 @@ _in_43:
 _out_43:
 	LDRB R5, [R4]
 	CMP R5, #0
-	BNE _out_43
+	BNE _in_43
 	SUB R4, R4, #1
 	LDRB R5, [R4]
 	SUB R5, R5, #1
@@ -122,7 +122,7 @@ _out_43:
 _out_8:
 	LDRB R5, [R4]
 	CMP R5, #0
-	BNE _out_8
+	BNE _in_8
 	ADD R4, R4, #1
 	ADD R4, R4, #1
 	LDR R0 ,= _char 
